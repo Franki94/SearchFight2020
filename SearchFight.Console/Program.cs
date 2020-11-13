@@ -20,18 +20,12 @@ namespace SearchFight
             var validator = provider.GetRequiredService<SearchFightValidator>();
             view = provider.GetRequiredService<SearchFightConsoleView>();
             var orchestrator = provider.GetRequiredService<ISearchFightOrchestrator>();
-            var a = Console.ReadLine();
 
-            while (a != "exit")
-            {
-                var b = a.Split(' ');
-                validator.Validate(b);
 
-                var response = orchestrator.GetSearchFightViewTotalResponse(b);
-                view.DisplaySearchFightResults(response);
+            validator.Validate(args);
 
-                a = Console.ReadLine();
-            }
+            var response = orchestrator.GetSearchFightViewTotalResponse(args);
+            view.DisplaySearchFightResults(response);
         }
         static void UnhandledExceptionTrapper(object sender, UnhandledExceptionEventArgs e)
         {
