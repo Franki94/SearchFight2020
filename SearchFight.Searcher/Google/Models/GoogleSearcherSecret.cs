@@ -1,8 +1,20 @@
-﻿namespace SearchFight.Searcher.Google
+﻿using System.Collections.Generic;
+
+namespace SearchFight.Searcher.Google
 {
     public class GoogleSearcherSecret
     {
-        public string Key { get; set; }
-        public string Cx { get; set; }
+        public GoogleSearcherSecret()
+        {
+            Params = new List<GoogleSearcherSecretParams>();
+        }
+        public string Url { get; set; }
+        public List<GoogleSearcherSecretParams> Params { get; set; }
+    }
+
+    public class GoogleSearcherSecretParams 
+    {
+        public string Name { get; set; }
+        public string Value { get; set; }
     }
 }

@@ -23,7 +23,7 @@ namespace SearchFight.Service
                     {
                         SearcherName = searcher.SearcherName,
                         Technology = tech,
-                        TotalResultsCount = await searcher.GetSearchResultsCount(tech)
+                        TotalResultsCount = await searcher.GetSearchResultsCount(tech).ConfigureAwait(false)
                     });
                 }
             }
